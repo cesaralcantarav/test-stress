@@ -2,7 +2,7 @@ config:
   target: "https://pre4c.aptitus.com"
   phases:
     - duration: 10
-      arrivalRate: 10
+      arrivalRate: 50
     #- duration: 600
       #arrivalRate: 50
   processor: "./my-functions.js"
