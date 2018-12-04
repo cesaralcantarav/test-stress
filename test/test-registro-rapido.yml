@@ -1,0 +1,26 @@
+config:
+  target: "https://pre4c.aptitus.com"
+  phases:
+    - duration: 10
+      arrivalRate: 10
+    #- duration: 600
+      #arrivalRate: 50
+  processor: "./my-functions.js"
+
+scenarios:
+  - name: "Register a user"
+    flow:
+      # call generateRandomData() to create the name, email, and password variables
+      - function: "generateRandomData"
+      - post:
+          url: "/registro/registro-rapido-ajax"
+          formData:
+            txtName: "{{ name }}"
+            txtFirstLastName: "{{ firstLastName }}"
+            txtSecondLastName: "{{ secondLastName }}"
+            txtEmail: "{{ email }}"
+            pswd: "{{ password }}"
+            txtJob: "Analyst"
+            selLocation: "3020"
+      # Print the data we're sending while debugging the script:
+      - log: "Sent a request to /users with {{ name }}, {{ firstLastName }}, {{ secondLastName }}, {{ email }}, {{ password }}"
