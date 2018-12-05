@@ -1,8 +1,8 @@
 config:
   target: "https://pre4c.aptitus.com"
   phases:
-    - duration: 10
-      arrivalRate: 50
+    - duration: 1
+      arrivalRate: 150
     #- duration: 600
       #arrivalRate: 50
   processor: "./my-functions.js"
@@ -20,7 +20,7 @@ scenarios:
             txtSecondLastName: "{{ secondLastName }}"
             txtEmail: "{{ email }}"
             pswd: "{{ password }}"
-            txtJob: "Analyst"
-            selLocation: "3020"
+            txtJob: "{{ job }}"
+            selLocation: "{{ location }}"
       # Print the data we're sending while debugging the script:
       - log: "Sent a request to /users with {{ name }}, {{ firstLastName }}, {{ secondLastName }}, {{ email }}, {{ password }}"

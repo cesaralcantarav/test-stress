@@ -14,12 +14,17 @@ function generateRandomData(userContext, events, done) {
   const secondLastName = Faker.name.lastName();
   const email = Faker.internet.exampleEmail();
   const password = Faker.internet.password();
+  const job = "Analyst"
+  const location = "3020"
+
   // add variables to virtual user's context:
   userContext.vars.name = name;
   userContext.vars.firstLastName = firstLastName;
   userContext.vars.secondLastName = secondLastName;
   userContext.vars.email = email;
   userContext.vars.password = password;
+  userContext.vars.job = job;
+  userContext.vars.location = location;
   // continue with executing the scenario:
   return done();
 }
